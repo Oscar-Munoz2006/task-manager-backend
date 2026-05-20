@@ -2,11 +2,11 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-8$-a9m2e-goui=0f$(4tu()#3))c8zfkcn^+4*qo%y-3*lb+0)'
+SECRET_KEY = 'django-insecure-8$-a9m2e-goui=0f$(4tu()#3))c8zfkcn^+4*qo%y-3*lb+0+'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["task-manager-backend-production-6faf.up.railway.app"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -21,7 +21,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # <- PRIMERO
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -70,11 +70,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# CORS
 CORS_ALLOW_ALL_ORIGINS = True
 
-# JWT
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
